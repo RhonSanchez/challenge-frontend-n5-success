@@ -1,4 +1,4 @@
-export const Product = ({ name, price, onAddToCart }) => {
+export const Product = ({ name, price, isAdded, onAddToCart }) => {
   return (
     <article className="product-container">
       <picture className="product-picture">
@@ -8,9 +8,15 @@ export const Product = ({ name, price, onAddToCart }) => {
         <h3 className="product-name">{name}</h3>
         <div className="product-actions">
           <span className="product-price">${price}</span>
-          <button className="product-button" onClick={onAddToCart}>
-            Agregar
-          </button>
+          {!isAdded ? (
+            <button className="product-button" onClick={onAddToCart}>
+              Agregar
+            </button>
+          ) : (
+            <button className="product-button product-button-added">
+              Agregado
+            </button>
+          )}
         </div>
       </div>
     </article>
