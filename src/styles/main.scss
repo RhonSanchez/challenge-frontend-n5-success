@@ -1,0 +1,285 @@
+$primary-color: #0047ff;
+$secondary-color: #1e1e1e;
+$gray-color-1: #e0e0e0;
+$gray-color-2: #f7f7f7;
+$gray-color-3: #9b9b9b;
+$bg-color-1: #ffffff;
+$font-family: "Clash Display", sans-serif;
+
+@import url("https://fonts.cdnfonts.com/css/clash-display");
+
+body {
+  background-color: $bg-color-1;
+  font-family: $font-family;
+  font-size: 16px;
+}
+
+// Products
+.product-container {
+  width: 250px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid $gray-color-1;
+  padding: 10px;
+}
+
+.product-picture {
+  display: block;
+  width: 100%;
+  height: 170px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: $gray-color-2;
+}
+
+.product-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: $secondary-color;
+}
+
+.product-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: $primary-color;
+}
+
+.product-button {
+  width: 100px;
+  height: 40px;
+  border-radius: 0;
+  border: none;
+  background-color: $secondary-color;
+  color: $bg-color-1;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-family: $font-family;
+}
+
+.product-button:hover {
+  cursor: pointer;
+}
+
+.product-price {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: $primary-color;
+}
+
+// Header
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  width: 100%;
+  height: 100%;
+}
+
+.header-nav {
+  width: 100%;
+  height: 100%;
+}
+
+.header-nav ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+}
+
+.header-nav ul li:nth-child(1),
+.header-nav ul li:nth-child(3) {
+  width: 100%;
+  text-align: center;
+  margin: 0 5px;
+}
+
+.header-nav ul li:nth-child(1) a,
+.header-nav ul li:nth-child(3) a {
+  text-decoration: none;
+  color: $secondary-color;
+}
+
+.header-nav ul li:nth-child(1) a.active,
+.header-nav ul li:nth-child(3) a.active {
+  width: 100%;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $bg-color-1;
+  background-color: $secondary-color;
+}
+
+.header-nav ul li:nth-child(1):hover,
+.header-nav ul li:nth-child(3):hover {
+  cursor: pointer;
+  background-color: $gray-color-2;
+}
+
+.header-elements {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.header-shopping-cart {
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  border-radius: 50px;
+  position: relative;
+}
+
+.header-shopping-cart:hover {
+  cursor: pointer;
+  background-color: $gray-color-2;
+}
+
+.shopping-cart-badge {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  background-color: $primary-color;
+  color: $bg-color-1;
+  font-size: 0.7rem;
+  font-family: $font-family;
+  position: absolute;
+  bottom: 60%;
+  right: 0;
+}
+
+#mi-menu {
+  position: absolute;
+  top: 100%;
+  left: -500%;
+  width: 250px;
+  border: 1px solid $gray-color-1;
+}
+
+.shopping-cart-list {
+  list-style: none;
+  padding: 0;
+}
+
+.shopping-cart-element {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shopping-cart-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $secondary-color;
+}
+
+.shopping-cart-title-amount {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $gray-color-3;
+}
+
+.shopping-cart-name {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: $secondary-color;
+}
+
+.shopping-cart-price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: $primary-color;
+}
+
+.shopping-cart-controls {
+  width: 70px;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid $gray-color-1;
+}
+
+.shopping-cart-minus,
+.shopping-cart-plus,
+.shopping-cart-amount {
+  width: 100%;
+  height: 100%;
+  padding: 0 5px;
+  margin: 0 auto;
+}
+
+.shopping-cart-amount {
+  font-family: $font-family;
+  font-weight: 500;
+  color: $secondary-color;
+  text-align: center;
+  border-right: 1px solid $gray-color-1;
+  border-left: 1px solid $gray-color-1;
+}
+
+.shopping-cart-checkout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shopping-cart-total {
+  font-size: 1rem;
+  font-weight: bold;
+  color: $secondary-color;
+}
+
+.shopping-cart-buy {
+  width: 100%;
+  height: 40px;
+  border-radius: 0;
+  border: none;
+  background-color: $primary-color;
+  color: $bg-color-1;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-family: $font-family;
+  margin-top: 5px;
+}
+
+.shopping-cart-clean {
+  width: 100%;
+  height: 40px;
+  border-radius: 0;
+  border: none;
+  background-color: $gray-color-1;
+  color: $secondary-color;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-family: $font-family;
+}
+
+.shopping-cart-buy:hover,
+.shopping-cart-clean:hover {
+  cursor: pointer;
+}
