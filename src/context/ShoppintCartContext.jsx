@@ -22,12 +22,23 @@ export const ShoppingCartProvider = ({ children }) => {
     setShoppingCartProducts([...oldProducts]);
   };
 
+  const deleteProductToShoppingCart = (id) => {
+    const oldProducts = shoppingCartProducts.filter((p) => p.id !== id);
+    setShoppingCartProducts([...oldProducts]);
+  };
+
+  const clearShoppingCart = () => {
+    setShoppingCartProducts([]);
+  };
+
   return (
     <ShoppingCartContext.Provider
       value={{
         shoppingCartProducts,
         addProductsToShoppingCart,
         updateProductsToShoppingCart,
+        deleteProductToShoppingCart,
+        clearShoppingCart,
       }}
     >
       {children}

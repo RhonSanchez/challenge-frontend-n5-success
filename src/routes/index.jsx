@@ -19,7 +19,7 @@ export const Index = () => {
 
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [shoppingCartProducts]);
 
   const onAddToCart = (product) => {
     // console.log(product);

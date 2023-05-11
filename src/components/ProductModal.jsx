@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const ProductModal = ({
   isOpen,
@@ -17,12 +17,17 @@ export const ProductModal = ({
   const handleSubmit = (event) => {
     event.preventDefault();
     onSubmit(formValues);
+    setFormValues(initialValues);
   };
 
   const handleCancel = () => {
     setFormValues(initialValues);
     onClose();
   };
+
+  useEffect(() => {
+    setFormValues(initialValues);
+  }, [initialValues]);
 
   return (
     <>

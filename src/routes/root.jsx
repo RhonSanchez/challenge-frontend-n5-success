@@ -8,8 +8,11 @@ import { useContext, useEffect } from "react";
 import { ShoppingCartContext } from "../context/ShoppintCartContext";
 
 export const Root = () => {
-  const { shoppingCartProducts, updateProductsToShoppingCart } =
-    useContext(ShoppingCartContext);
+  const {
+    shoppingCartProducts,
+    updateProductsToShoppingCart,
+    clearShoppingCart,
+  } = useContext(ShoppingCartContext);
   const onOpenModal = () => {
     document.getElementById("mi-menu").style.display = "block";
   };
@@ -23,6 +26,17 @@ export const Root = () => {
     }
   });
 
+  const updateProducts = async (product) => {
+    const resp = await fetch(`http://localhost:3000/products/${product.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(product),
+    });
+    const data = await resp.json();
+  };
+
   useEffect(() => {
     console.log(shoppingCartProducts);
   }, [shoppingCartProducts]);
@@ -33,6 +47,20 @@ export const Root = () => {
 
   const updateProduct = (product) => {
     updateProductsToShoppingCart(product);
+  };
+
+  const buyProducts = () => {
+    console.log(shoppingCartProducts);
+    shoppingCartProducts.map(async (product) => {
+      const productForUpdate = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        amount: product.amount - product.amountToBuy,
+      };
+      await updateProducts(productForUpdate);
+    });
+    clearShoppingCart();
   };
 
   return (
@@ -53,6 +81,8 @@ export const Root = () => {
             <ShoppingCart
               products={shoppingCartProducts}
               updateProduct={updateProduct}
+              clearCart={clearShoppingCart}
+              buyProducts={buyProducts}
             />
           </div>
         </div>
