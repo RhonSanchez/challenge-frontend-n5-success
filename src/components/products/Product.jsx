@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import { Btn } from "../Btn";
+import { BoxIcon } from "../icons/BoxIcon";
 
 export const Product = ({ name, price, isAdded, onAddToCart }) => {
   return (
     <article className="product-container">
       <picture className="product-picture">
-        <img src="src/assets/caja-abierta.svg" width="100%" height="100%" />
+        <BoxIcon />
       </picture>
       <div className="product-description">
         <h3 className="product-name">{name}</h3>
