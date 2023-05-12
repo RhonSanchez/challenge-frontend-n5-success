@@ -25,6 +25,9 @@ Reto resuelto para proceso de selección
 ### Estructua de carpetas
 
 ```
+├──logic-test
+|   ├── logic-test.js
+├──node_modules
 ├──public
 ├──src:
 |   ├──components:
@@ -53,6 +56,10 @@ Reto resuelto para proceso de selección
 ├──README.md
 ├──vite.config.js
 ```
+
+### Test de lógica
+
+En la carpeta raíz podra encontrar el test de lógica requerido para la prueba.
 
 ### Notas
 
