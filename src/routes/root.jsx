@@ -37,7 +37,6 @@ export const Root = () => {
   };
 
   const buyProducts = () => {
-    console.log(shoppingCartProducts);
     shoppingCartProducts.map(async (product) => {
       const productForUpdate = {
         id: product.id,

@@ -53,9 +53,8 @@ ShoppingCart.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
       price: PropTypes.number.isRequired,
+      amount: PropTypes.number.isRequired,
       amountToBuy: PropTypes.number.isRequired,
     })
   ).isRequired,

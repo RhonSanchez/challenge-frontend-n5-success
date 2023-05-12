@@ -16,37 +16,37 @@
       "id": 3,
       "name": "Huevos",
       "price": 75000,
-      "amount": 5
+      "amount": 4
     },
     {
       "id": 4,
       "name": "Carne",
       "price": 85300,
-      "amount": 17
+      "amount": 10
     },
     {
       "id": 5,
       "name": "Queso",
       "price": 75000,
-      "amount": 6
+      "amount": 2
     },
     {
+      "id": 6,
       "name": "Arroz",
       "price": 85300,
-      "amount": 9,
-      "id": 6
+      "amount": 4
     },
     {
       "id": 7,
       "name": "Frijoles",
       "price": 85300,
-      "amount": 26
+      "amount": 25
     },
     {
+      "id": 8,
       "name": "Lentejas",
       "price": 175000,
-      "amount": 42,
-      "id": 8
+      "amount": 38
     },
     {
       "id": 9,
@@ -59,24 +59,6 @@
       "price": 375000,
       "amount": 23,
       "id": 10
-    },
-    {
-      "name": "pasta larga",
-      "price": 35,
-      "amount": 3,
-      "id": 11
-    },
-    {
-      "name": "salsa de tomate",
-      "price": 10,
-      "amount": 3,
-      "id": 12
-    },
-    {
-      "name": "mayonesa",
-      "price": 20,
-      "amount": 30,
-      "id": 13
     }
   ]
 }
