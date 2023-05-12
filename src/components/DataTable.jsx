@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
-import { EditIcon } from "./EditIcon";
-import { DeleteIcon } from "./DeleteIcon";
+import { EditIcon } from "./icons/EditIcon";
+import { DeleteIcon } from "./icons/DeleteIcon";
 
 export const DataTable = ({ data, onEdit, onDelete }) => {
   const [selectedRow, setSelectedRow] = useState(null);
@@ -18,10 +19,10 @@ export const DataTable = ({ data, onEdit, onDelete }) => {
       <thead>
         <tr>
           <th>ID</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Amount</th>
-          <th>Actions</th>
+          <th>Nombre</th>
+          <th>Preio</th>
+          <th>Cantidad</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -50,4 +51,17 @@ export const DataTable = ({ data, onEdit, onDelete }) => {
       </tbody>
     </table>
   );
+};
+
+DataTable.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      amount: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  onEdit: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };

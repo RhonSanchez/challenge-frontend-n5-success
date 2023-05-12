@@ -4,7 +4,7 @@ import { NewProduct } from "./routes/new-product.jsx";
 import { Root } from "./routes/root.jsx";
 import { ErrorPage } from "./routes/error-page.jsx";
 import { ShoppingCartProvider } from "./context/ShoppintCartContext.jsx";
-import "./styles/main.scss";
+import "./styles/main.css";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Index /> },
       {
-        path: "/new-product",
+        path: "/products",
         element: <NewProduct />,
       },
     ],

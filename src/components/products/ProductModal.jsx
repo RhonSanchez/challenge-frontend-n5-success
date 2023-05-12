@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import { Btn } from "../Btn";
 
 export const ProductModal = ({
   isOpen,
@@ -31,7 +33,7 @@ export const ProductModal = ({
 
   return (
     <>
-      <div className={isOpen ? "modal-overlay" : ""} onClick={onClose} />
+      <div className={isOpen ? "modal-dialog-overlay" : ""} onClick={onClose} />
       <dialog className="modal-dialog" open={isOpen}>
         <form onSubmit={handleSubmit}>
           <h2>{title}</h2>
@@ -74,22 +76,31 @@ export const ProductModal = ({
           </div>
           <br />
           <div className="modal-dialog-actions">
-            <button
-              className="modal-dialog-button modal-dialog-button-cancel"
-              type="button"
+            <Btn
+              className="button-block"
               onClick={handleCancel}
-            >
-              Cancel
-            </button>
-            <button
-              className="modal-dialog-button modal-dialog-button-confirm"
+              title="Cancelar"
+            />
+            <Btn
+              className="button-primary button-block"
               type="submit"
-            >
-              Save
-            </button>
+              title="Guardar"
+            />
           </div>
         </form>
       </dialog>
     </>
   );
+};
+
+ProductModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  initialValues: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    amount: PropTypes.number.isRequired,
+  }).isRequired,
 };

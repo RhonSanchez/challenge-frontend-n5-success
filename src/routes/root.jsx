@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom";
-import { Logo } from "../components/Logo";
-import { ShoppingCartIcon } from "../components/ShoppingCartIcon";
+import { Logo } from "../components/icons/Logo";
+import { ShoppingCartIcon } from "../components/icons/ShoppingCartIcon";
 import { Badge } from "../components/Badge";
-import { ShoppingCart } from "../components/ShoppingCart";
+import { ShoppingCart } from "../components/shoppingCart/ShoppingCart";
 import { NavBar } from "../components/NavBar";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ShoppingCartContext } from "../context/ShoppintCartContext";
+import { useProducts } from "../hooks/useProduct";
 
 export const Root = () => {
   const {
@@ -13,33 +14,19 @@ export const Root = () => {
     updateProductsToShoppingCart,
     clearShoppingCart,
   } = useContext(ShoppingCartContext);
+  const { updateProducts } = useProducts();
   const onOpenModal = () => {
-    document.getElementById("mi-menu").style.display = "block";
+    document.getElementById("modal").style.display = "block";
   };
 
   document.addEventListener("click", (evento) => {
     if (
-      !evento.target.closest("#mi-menu") &&
-      !evento.target.closest("#abrir-menu")
+      !evento.target.closest("#modal") &&
+      !evento.target.closest("#open-modal")
     ) {
-      document.getElementById("mi-menu").style.display = "none";
+      document.getElementById("modal").style.display = "none";
     }
   });
-
-  const updateProducts = async (product) => {
-    const resp = await fetch(`http://localhost:3000/products/${product.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(product),
-    });
-    const data = await resp.json();
-  };
-
-  useEffect(() => {
-    console.log(shoppingCartProducts);
-  }, [shoppingCartProducts]);
 
   const amountBadge = shoppingCartProducts?.length
     ? shoppingCartProducts.length
@@ -72,7 +59,7 @@ export const Root = () => {
         <NavBar />
         <div className="header-elements">
           <div
-            id="abrir-menu"
+            id="open-modal"
             className="header-shopping-cart"
             onClick={onOpenModal}
           >

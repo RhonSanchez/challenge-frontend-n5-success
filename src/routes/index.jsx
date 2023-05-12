@@ -1,28 +1,14 @@
-import { useContext, useEffect, useState } from "react";
-import { Product } from "../components/Product";
+import { useContext } from "react";
+import { Product } from "../components/products/Product";
 import { ShoppingCartContext } from "../context/ShoppintCartContext";
+import { useProducts } from "../hooks/useProduct";
 
 export const Index = () => {
-  const [products, setProducts] = useState([]);
+  const { productsActive } = useProducts();
   const { shoppingCartProducts, addProductsToShoppingCart } =
     useContext(ShoppingCartContext);
 
-  const getProducts = async () => {
-    const resp = await fetch("http://localhost:3000/products", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const data = await resp.json();
-    setProducts(data);
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, [shoppingCartProducts]);
-
   const onAddToCart = (product) => {
-    // console.log(product);
     addProductsToShoppingCart(product);
   };
 
@@ -34,8 +20,8 @@ export const Index = () => {
     <div>
       <main>
         <div className="products-container">
-          {products &&
-            products.map((product) => (
+          {productsActive &&
+            productsActive.map((product) => (
               <Product
                 key={product.id}
                 name={product.name}

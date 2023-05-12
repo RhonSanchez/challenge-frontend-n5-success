@@ -1,5 +1,7 @@
-import { MinusIcon } from "./MinusIcon";
-import { PlusIcon } from "./PlusIcon";
+import PropTypes from "prop-types";
+
+import { MinusIcon } from "../icons/MinusIcon";
+import { PlusIcon } from "../icons/PlusIcon";
 
 export const ShoppingCartProduct = ({
   product = { name: "", price: 0, amountToBuy: 0, amount: 0, id: 0 },
@@ -36,4 +38,15 @@ export const ShoppingCartProduct = ({
       <span className="shopping-cart-price">${pricePerAmount}</span>
     </li>
   );
+};
+
+ShoppingCartProduct.propTypes = {
+  product: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    amountToBuy: PropTypes.number.isRequired,
+    amount: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
+  }).isRequired,
+  updateProduct: PropTypes.func.isRequired,
 };

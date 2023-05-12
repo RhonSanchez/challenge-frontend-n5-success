@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+import { Btn } from "../Btn";
 import { ShoppingCartProduct } from "./ShoppingCartProduct";
 
 export const ShoppingCart = ({
@@ -13,7 +15,7 @@ export const ShoppingCart = ({
   );
 
   return (
-    <dialog className="shopping-cart" id="mi-menu">
+    <dialog className="shopping-cart" id="modal">
       <span className="shopping-cart-title">Carrito de compras</span>
       <span className="shopping-cart-title-amount">{` (${amountProducts})`}</span>
       {products?.length === 0 ? (
@@ -34,14 +36,30 @@ export const ShoppingCart = ({
             <span className="shopping-cart-total">Total</span>
             <span className="shopping-cart-price">${totalPrice}</span>
           </div>
-          <button className="shopping-cart-clean" onClick={clearCart}>
-            Limpiar
-          </button>
-          <button className="shopping-cart-buy" onClick={buyProducts}>
-            Comprar
-          </button>
+          <Btn className="button-block" onClick={clearCart} title="Limpiar" />
+          <Btn
+            className="button-primary button-block"
+            onClick={buyProducts}
+            title="Comprar"
+          />
         </>
       )}
     </dialog>
   );
+};
+
+ShoppingCart.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      amountToBuy: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  updateProduct: PropTypes.func.isRequired,
+  clearCart: PropTypes.func.isRequired,
+  buyProducts: PropTypes.func.isRequired,
 };

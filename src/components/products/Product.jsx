@@ -1,3 +1,6 @@
+import PropTypes from "prop-types";
+import { Btn } from "../Btn";
+
 export const Product = ({ name, price, isAdded, onAddToCart }) => {
   return (
     <article className="product-container">
@@ -9,16 +12,23 @@ export const Product = ({ name, price, isAdded, onAddToCart }) => {
         <div className="product-actions">
           <span className="product-price">${price}</span>
           {!isAdded ? (
-            <button className="product-button" onClick={onAddToCart}>
-              Agregar
-            </button>
+            <Btn
+              className="button-primary"
+              onClick={onAddToCart}
+              title="Agregar"
+            />
           ) : (
-            <button className="product-button product-button-added">
-              Agregado
-            </button>
+            <Btn title="Agregado" />
           )}
         </div>
       </div>
     </article>
   );
+};
+
+Product.propTypes = {
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  isAdded: PropTypes.bool.isRequired,
+  onAddToCart: PropTypes.func.isRequired,
 };
