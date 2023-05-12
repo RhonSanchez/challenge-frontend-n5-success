@@ -9,7 +9,7 @@ Reto resuelto para proceso de selección
 
 #### Ramas
 
-- main -> Production `http://localhost:4030/api/v1`
+- main -> Production `https://challenge-frontend-n5.vercel.app/`
 
 #### Comandos para desplegar funciones.
 
