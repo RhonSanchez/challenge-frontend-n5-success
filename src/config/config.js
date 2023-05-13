@@ -1,1 +1,1 @@
-export const API_URL = "https://json-server-test-navy.vercel.app/products";
+export const API_URL = "http://localhost:3000/products";

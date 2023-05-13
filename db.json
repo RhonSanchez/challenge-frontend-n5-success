@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Leche",
       "price": 75000,
-      "amount": 2
+      "amount": 1
     },
     {
       "id": 2,
@@ -59,6 +59,12 @@
       "name": "Pollo",
       "price": 375000,
       "amount": 22
+    },
+    {
+      "name": "Salsa",
+      "price": 10,
+      "amount": 20,
+      "id": 11
     }
   ]
 }
