@@ -9,7 +9,8 @@
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "build-css": "sass src/styles/main.scss src/styles/main.css",
-    "server": "json-server --watch src/db/db.json"
+    "server": "json-server --watch src/db/db.json",
+    "start": "node server.js"
   },
   "dependencies": {
     "json-server": "^0.17.3",

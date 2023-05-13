@@ -46,7 +46,7 @@
       "id": 8,
       "name": "Lentejas",
       "price": 175000,
-      "amount": 38
+      "amount": 37
     },
     {
       "id": 9,
@@ -55,10 +55,10 @@
       "amount": 54
     },
     {
+      "id": 10,
       "name": "Pollo",
       "price": 375000,
-      "amount": 23,
-      "id": 10
+      "amount": 22
     }
   ]
 }
