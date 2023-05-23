@@ -1,15 +1,11 @@
+import db from "../../db.json";
+
 export const getValidationProducts = async () => {
   const val = window.localStorage.getItem("products");
   if (val) {
     return JSON.parse(val);
   }
-  const resp = await fetch("../../db.json", {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  const data = await resp.json();
-  return data;
+  return db;
 };
 
 export const getProducts = async () => {
