@@ -9,7 +9,7 @@ Reto resuelto para proceso de selección
 
 #### Ramas
 
-- main -> Production `https://challenge-frontend-n5.vercel.app/`
+- main -> Production `https://challenge-frontend-n5-success.vercel.app/`
 
 #### Comandos para desplegar funciones.
 
@@ -32,11 +32,7 @@ Reto resuelto para proceso de selección
 ├──src:
 |   ├──components:
 |   │   ├── ...
-|   ├──config:
-|   │   ├── ...
 |   ├──context:
-|   │   ├── ...
-|   ├──db:
 |   │   ├── ...
 |   ├──hooks:
 |   │   ├── ...
@@ -51,6 +47,7 @@ Reto resuelto para proceso de selección
 ├──.babelrc
 ├──.eslintrc.cjs
 ├──.gitignore
+├──db.json
 ├──index.html
 ├──package.json
 ├──README.md
@@ -68,9 +65,8 @@ En la carpeta raíz podra encontrar el test de lógica requerido para la prueba.
 
 | °   | Paquete             | Versión       |
 | --- | ------------------- | ------------- |
-| 1   | `json-server`       | `^0.17.3`     |
-| 2   | `react`             | `^18.2.0`     |
-| 3   | `react-dom`         | `^18.2.0`     |
-| 4   | `react-router-dom`  | `6.11.1`      |
-| 5   | `sass`              | `^1.62.1`     |
-| 6   | `styled-components` | `^6.0.0-rc.1` |
+| 1   | `react`             | `^18.2.0`     |
+| 2   | `react-dom`         | `^18.2.0`     |
+| 3   | `react-router-dom`  | `6.11.1`      |
+| 4   | `sass`              | `^1.62.1`     |
+| 5   | `styled-components` | `^6.0.0-rc.1` |

@@ -1,51 +1,43 @@
-import { API_URL } from "../config/config";
-
-export const getProducts = async () => {
-  const resp = await fetch(API_URL, {
+export const getValidationProducts = async () => {
+  const val = window.localStorage.getItem("products");
+  if (val) {
+    return JSON.parse(val);
+  }
+  const resp = await fetch("../../db.json", {
     headers: {
       "Content-Type": "application/json",
     },
   });
-  return await resp.json();
+  const data = await resp.json();
+  return data;
+};
+
+export const getProducts = async () => {
+  const data = await getValidationProducts();
+  return data.products;
 };
 
 export const getProductsActive = async () => {
-  const resp = await fetch(`${API_URL}?amount_gte=1`, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  return await resp.json();
+  const data = await getValidationProducts();
+  return data.products.filter((p) => p.amount > 0);
 };
 
 export const postProducts = async (product) => {
-  const resp = await fetch(API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(product),
-  });
-  return await resp.json();
+  const data = await getValidationProducts();
+  data.products.push(product);
+  window.localStorage.setItem("products", JSON.stringify(data));
 };
 
 export const putProducts = async (product) => {
-  const resp = await fetch(`${API_URL}/${product.id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(product),
-  });
-  return await resp.json();
+  const data = await getValidationProducts();
+  const indexElement = data.products.findIndex((p) => p.id === product.id);
+  data.products.splice(indexElement, 1, product);
+  window.localStorage.setItem("products", JSON.stringify(data));
 };
 
 export const deleteProducts = async (id) => {
-  const resp = await fetch(`${API_URL}/${id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  return await resp.json();
+  const data = await getValidationProducts();
+  const productsUpdated = data.products.filter((p) => id !== p.id);
+  const newProducts = { products: productsUpdated };
+  window.localStorage.setItem("products", JSON.stringify(newProducts));
 };

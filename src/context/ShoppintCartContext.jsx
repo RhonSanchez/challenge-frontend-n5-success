@@ -4,7 +4,7 @@ export const ShoppingCartContext = createContext({});
 
 export const ShoppingCartProvider = ({ children }) => {
   const [shoppingCartProducts, setShoppingCartProducts] = useState(() => {
-    const val = window.localStorage.getItem("products");
+    const val = window.localStorage.getItem("productsShoppingCart");
     if (val) {
       return JSON.parse(val);
     }
@@ -20,7 +20,7 @@ export const ShoppingCartProvider = ({ children }) => {
       },
     ];
     setShoppingCartProducts(newProducst);
-    window.localStorage.setItem("products", JSON.stringify(newProducst));
+    window.localStorage.setItem("productsShoppingCart", JSON.stringify(newProducst));
   };
 
   const updateProductsToShoppingCart = (product) => {
@@ -28,18 +28,18 @@ export const ShoppingCartProvider = ({ children }) => {
     const indexElement = oldProducts.findIndex((p) => p.id === product.id);
     oldProducts[indexElement].amountToBuy = product.amountToBuy;
     setShoppingCartProducts([...oldProducts]);
-    window.localStorage.setItem("products", JSON.stringify([...oldProducts]));
+    window.localStorage.setItem("productsShoppingCart", JSON.stringify([...oldProducts]));
   };
 
   const deleteProductToShoppingCart = (id) => {
     const oldProducts = shoppingCartProducts.filter((p) => p.id !== id);
     setShoppingCartProducts([...oldProducts]);
-    window.localStorage.setItem("products", JSON.stringify([...oldProducts]));
+    window.localStorage.setItem("productsShoppingCart", JSON.stringify([...oldProducts]));
   };
 
   const clearShoppingCart = () => {
     setShoppingCartProducts([]);
-    window.localStorage.setItem("products", []);
+    window.localStorage.setItem("productsShoppingCart", []);
   };
 
   return (
